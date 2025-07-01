@@ -25,6 +25,11 @@ jobs:
       - name: Build your package
         run: npm run build
 
+      - name: Use secret in environment
+        run: echo "Using secret value"
+        env: 
+          SECRET_VALUE: ${{ secrets.MY_SECRET_KEY }}
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
